@@ -43,7 +43,6 @@ function Form() {
     }),
     onSubmit(values) {
       register({
-        username: values.email,
         first_name: values.first_name,
         last_name: values.last_name,
         email: values.email,

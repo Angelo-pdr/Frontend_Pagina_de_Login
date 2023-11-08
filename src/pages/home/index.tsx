@@ -31,6 +31,7 @@ function Form() {
       email: Yup.string()
         .required('O campo é obrigatório'),
       password: Yup.string()
+        .min(8, 'A senha precisa ter pelo menos 8 caracteres')
         .required('O campo é obrigatório'),
     }),
     onSubmit(values) {

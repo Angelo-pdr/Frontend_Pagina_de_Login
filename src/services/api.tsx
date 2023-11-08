@@ -19,12 +19,11 @@ export function register({
     }
     fetch(url, requestOption)
       .then((respose) => respose.json())
-      .then((data) => console.log(data))
   }
 }
 
 export function enviar({ email, password }: UserProps) {
-  console.log(email, password)
+  console.log({ email, password })
   const url = 'http://127.0.0.1:8000/api-token-auth/'
   const requestOption = {
     method: 'POST',
@@ -36,6 +35,5 @@ export function enviar({ email, password }: UserProps) {
   }
   fetch(url, requestOption)
     .then((respose) => respose.json())
-    .then((data) => localStorage.setItem('user', JSON.stringify(data.user)))
-  location.reload()
+    .then((data) => console.log(data))
 }
