@@ -23,7 +23,7 @@ const GlobalCss = createGlobalStyle`
     color: ${colors.text};
     width: 100%;
     height: 100%;
-    padding: 20px 0px;
+    padding: 15px 10px;
   }
 
   .container{

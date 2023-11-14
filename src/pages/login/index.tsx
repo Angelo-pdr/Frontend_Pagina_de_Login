@@ -4,12 +4,13 @@ import * as Yup from 'yup'
 
 import * as C from './styles'
 import imgLogin from '../../asserts/img_login.png'
-import { Mail, EyeOff, Eye, } from 'lucide-react'
+import { Mail, EyeOff, Eye } from 'lucide-react'
 import { enviar } from '../../services/api'
-import Welcome from '../../components/welcome'
+import Welcome from '../welcome'
+import { useNavigate } from 'react-router-dom'
 
 function Form() {
-
+  const navigate = useNavigate()
   const [isEye, setIsEye] = useState('password')
   const [istoken, setIsToken] = useState<string | null>()
 
@@ -21,21 +22,19 @@ function Form() {
     }
   }
 
-
   const form = useFormik({
     initialValues: {
       email: '',
-      password: '',
+      password: ''
     },
     validationSchema: Yup.object({
-      email: Yup.string()
-        .required('O campo é obrigatório'),
+      email: Yup.string().required('O campo é obrigatório'),
       password: Yup.string()
         .min(8, 'A senha precisa ter pelo menos 8 caracteres')
-        .required('O campo é obrigatório'),
+        .required('O campo é obrigatório')
     }),
     onSubmit(values) {
-      enviar({email: values.email, password: values.password})
+      enviar({ email: values.email, password: values.password })
     }
   })
 
@@ -45,14 +44,12 @@ function Form() {
     const hasError = isTouched && isInvalid
     return hasError
   }
-useEffect(() => {
-  const user = localStorage.getItem('user')
-  setIsToken(user)
-}, [])
+  useEffect(() => {
+    const user = localStorage.getItem('user')
+    setIsToken(user)
+  }, [])
   return (
-   <>
-    {!istoken ?  (
-      <div className="container">
+    <div className="container">
       <C.ContentImg>
         <C.Img src={imgLogin} />
       </C.ContentImg>
@@ -94,12 +91,11 @@ useEffect(() => {
         </div>
         <C.Button type="submit">Sign In</C.Button>
         <C.option>
-          Already a member? <button> Sign Up</button>
+          Already a member?{' '}
+          <button onClick={() => navigate('/form')}> Sign Up</button>
         </C.option>
       </form>
     </div>
-    ) : (<Welcome />)}
-   </>
   )
 }
 
