@@ -109,3 +109,55 @@ export const option = styled.div`
     cursor: pointer;
   }
 `
+export const Screen = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: none;
+  align-items: end;
+  justify-content: right;
+
+  &.is-visible {
+    display: flex;
+    animation: loade 6s;
+  }
+
+  @keyframes loade {
+    from {
+      display: flex;
+    }
+    to {
+      display: none;
+    }
+  }
+`
+
+export const Modal = styled.div`
+  width: 280px;
+  height: 80px;
+  border-radius: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: red;
+  padding: 0.5rem;
+  color: white;
+  position: relative;
+  transition: 1s;
+
+  h1 {
+    margin-top: 25px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+  }
+`

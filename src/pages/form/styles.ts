@@ -143,11 +143,11 @@ export const Screen = styled.div`
 export const Modal = styled.div<ModalProps>`
   width: 280px;
   height: 80px;
-  border-radius: .5rem;
-  margin-right: .5rem;
-  margin-bottom: .5rem;
-  background-color: ${props => props.color};
-  padding: .5rem;
+  border-radius: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: ${(props) => props.color};
+  padding: 0.5rem;
   color: white;
   position: relative;
   transition: 1s;
@@ -159,12 +159,10 @@ export const Modal = styled.div<ModalProps>`
     font-size: 16px;
   }
 
-
   .close {
     position: absolute;
     top: 5px;
     right: 5px;
     cursor: pointer;
   }
-
 `

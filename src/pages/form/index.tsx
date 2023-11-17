@@ -192,10 +192,17 @@ function Form() {
           </C.option>
         </form>
       </div>
-      <C.Screen onClick={() => setStatus(0)} className={status ? 'is-visible' : ''}>
+      <C.Screen
+        onClick={() => setStatus(0)}
+        className={status ? 'is-visible' : ''}
+      >
         <C.Modal color={status == 400 ? 'red' : 'green'}>
-          <h1>{status == 400 ? 'E-mail já está em uso' : 'Usuario cadastrado com sucesso'}</h1>
-          <XCircle className='close' />
+          <h1>
+            {status == 400
+              ? 'E-mail já está em uso'
+              : 'Usuario cadastrado com sucesso'}
+          </h1>
+          <XCircle className="close" />
         </C.Modal>
       </C.Screen>
     </>
